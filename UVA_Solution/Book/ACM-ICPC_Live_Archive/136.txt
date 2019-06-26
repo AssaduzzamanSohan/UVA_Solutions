@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+//#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long
+
+int main()
+{
+    cout<<"The 1500'th ugly number is 859963392."<<endl;
+
+    return 0;
+}

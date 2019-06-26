@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long
+
+int getDigit(int n)
+{
+    int sum = 0;
+    while (n != 0)
+    {
+        sum++;
+        n = n/10;
+    }
+    return sum;
+}
+
+int getSum(int n)
+{
+    int sum = 0;
+    while (n != 0)
+    {
+        sum = sum + n % 10;
+        n = n/10;
+    }
+    return sum;
+}
+int selfnum(int n)
+{
+    int j,c;
+    j=getDigit(n);
+    j=n-(j*9)-5;
+    while(j<=n)
+    {
+        c=getSum(j);
+        c+=j;
+        if(c==n)
+            return 0;
+        j++;
+    }
+    return 1;
+}
+
+int main()
+{
+    int i;
+
+    for(i=1; i<=1000000; i++)
+    {
+        if(selfnum(i))
+            cout<<i<<endl;
+    }
+
+    return 0;
+}

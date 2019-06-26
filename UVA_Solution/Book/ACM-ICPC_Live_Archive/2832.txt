@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long int
+
+int main()
+{
+    string winer,name;
+    int n,a1,a2,b1,b2,c1,c2,d1,d2,a;
+    int i=0,mx=0,p=9999999,solved,penalty;
+    cin>>n;
+    while(n--)
+    {
+        penalty=solved=0;
+        cin>>name>>a1>>a2>>b1>>b2>>c1>>c2>>d1>>d2;
+        if(a2>0)
+        {
+            solved++;
+            a=a1-1;
+            penalty+=a2+(a*20);
+        }
+        if(b2>0)
+        {
+            solved++;
+            a=b1-1;
+            penalty+=b2+(a*20);
+        }
+        if(c2>0)
+        {
+            solved++;
+            a=c1-1;
+            penalty+=c2+(a*20);
+        }
+        if(d2>0)
+        {
+            solved++;
+            a=d1-1;
+            penalty+=d2+(a*20);
+        }
+        if(solved>mx)
+        {
+            winer=name;
+            mx=solved;
+            p=penalty;
+        }
+        if(solved==mx && penalty<p)
+        {
+            winer=name;
+            mx=solved;
+            p=penalty;
+        }
+    }
+    cout<<winer<<' '<<mx<<' '<<p<<endl;
+    return 0;
+}

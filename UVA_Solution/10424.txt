@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    string name1,name2;
+    double Ans;
+    double x;
+
+    while(getline(cin,name1))
+    {
+        getline(cin,name2);
+        int sum1=0,sum2=0;
+        for(int i=0; i<name1.size(); i++)
+        {
+            if(name1[i]>='a' && name1[i]<='z')
+                sum1+=name1[i]-96;
+            if(name1[i]>='A' && name1[i]<='Z')
+                sum1+=name1[i]-64;
+        }
+        for(int i=0; i<name2.size(); i++)
+        {
+            if(name2[i]>='a' && name2[i]<='z')
+                sum2+=name2[i]-96;
+            if(name2[i]>='A' && name2[i]<='Z')
+                sum2+=name2[i]-64;
+        }
+
+        if(sum1%9==0)
+            sum1=9;
+        else
+            sum1%=9;
+        if(sum2%9==0)
+            sum2=9;
+        else
+            sum2%=9;
+
+        if(sum1<sum2)
+        {
+            sum1*=100;
+            Ans=(double)(sum1/sum2);
+            x=sum1-(Ans*sum2);
+            x/=sum2;
+        }
+        else
+        {
+            sum2*=100;
+            Ans=(double)(sum2/sum1);
+            x=sum2-(Ans*sum1);
+            x/=sum1;
+        }
+
+        Ans+=x;
+        printf("%.2f",Ans);
+        cout<<' '<<"%"<<endl;
+    }
+    return 0;
+}

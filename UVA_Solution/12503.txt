@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    int t,n,i;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        int a,Ans=0;
+        string s,x;
+        for(i=0; i<n; i++)
+        {
+            cin>>x;
+            if(x[0]=='L') s+='L';
+            else if(x[0]=='R') s+='R';
+            else
+            {
+                cin>>x>>a;
+                s+=s[a-1];
+            }
+        }
+       // cout<<s<<"\n";
+        for(i=0; i<s.size(); i++)
+        {
+            if(s[i]=='L') Ans--;
+            else Ans++;
+        }
+        cout<<Ans<<"\n";
+    }
+
+    return 0;
+}

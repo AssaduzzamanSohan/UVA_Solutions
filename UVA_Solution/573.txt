@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    double h,u,d,f;
+    for(int a=0; ; a++)
+    {
+        cin>>h>>u>>d>>f;
+        if(h==0)
+            return 0;
+        double Ans=0.0;
+        f=(u*f)/100;
+        for(int i=1; ; i++)
+        {
+            if(u>0)
+                Ans+=u;
+            if(Ans>h)
+            {
+                printf("success on day %d\n",i);
+                break;
+            }
+            Ans-=d;
+            u-=f;
+            if(Ans<0)
+            {
+                printf("failure on day %d\n",i);
+                break;
+            }
+        }
+    }
+
+    return 0;
+}

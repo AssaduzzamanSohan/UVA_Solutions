@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    string s;
+    int a;
+    for(int t=0;  ; t++)
+    {
+        cin>>s;
+        int x[10001]= {0},c=0;
+        if(s[0]=='E'&&s[1]=='N'&&s[2]=='D')
+            return 0;
+
+        if(s[0]=='1' && s.size()==1)
+            cout<<"1"<<endl;
+        else
+        {
+            a=s.size();
+            x[c]=a;
+            c++;
+            for(int i=1; i<25; i++)
+            {
+                int n=a,d=0;
+
+                while(n>0)
+                {
+                    n/=10;
+                    d++;
+                }
+                a=d;
+                x[c]=a;
+                c++;
+            }
+            for(int i=1; i<25; i++)
+            {
+                if(x[i]==x[i-1])
+                {
+                    cout<<i+1<<endl;
+                    break;
+                }
+            }
+        }
+    }
+
+    return 0;
+}

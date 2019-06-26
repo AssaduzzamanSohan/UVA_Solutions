@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    string s;
+    long long int i,t,k=0,a;
+
+    cin>>t;
+    for(i=1; i<=t; i++)
+    {
+        cin>>s;
+        if(s[0]=='d')
+        {
+            cin>>a;
+            k+=a;
+        }
+        else
+            cout<<k<<"\n";
+
+    }
+
+    return 0;
+}
+

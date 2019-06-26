@@ -1,0 +1,66 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+//#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long
+
+double find_hum (double d, double t)
+{
+    double h,e;
+    e=6.11 * exp (5417.7530 * ((1/273.16) - (1/(d+273.16))));
+    h=0.5555*(e-10.0);
+    return h+t;
+}
+double find_tem(double d, double hum)
+{
+    double h,e;
+    e=6.11 * exp (5417.7530 * ((1/273.16) - (1/(d+273.16))));
+    h=0.5555*(e-10.0);
+    return hum-h;
+}
+double find_dew(double tem, double hum)
+{
+    double hh=hum-tem;
+    double e=hh/0.5555+10.0;
+    double tmp = 1/273.16-log(e/6.11)/5417.753;
+    return 1/tmp-273.16;
+}
+
+int main()
+{
+    char a,b;
+    double c,d,tem,hum,dew;
+
+    while(1)
+    {
+        cin>>a;
+        if(a=='E')
+            return 0;
+        cin>>c>>b>>d;
+
+        tem=hum=dew=-9999;
+
+        if(a=='H')
+            hum=c;
+        if(a=='D')
+            dew=c;
+        if(a=='T')
+            tem=c;
+        if(b=='H')
+            hum=d;
+        if(b=='D')
+            dew=d;
+        if(b=='T')
+            tem=d;
+
+        if(tem==-9999)
+            tem=find_tem(dew,hum);
+        if(hum==-9999)
+            hum=find_hum(dew,tem);
+        if(dew==-9999)
+            dew=find_dew(tem,hum);
+        printf("T %.1f D %.1f H %.1f\n",tem,dew,hum);
+    }
+    return 0;
+}

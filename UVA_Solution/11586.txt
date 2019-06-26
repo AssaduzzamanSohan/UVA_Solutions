@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    int t;
+
+    cin>>t;
+    getchar();
+    for(int j=0; j<t; j++)
+    {
+        string s;
+        getline(cin,s);
+        int f=0,m=0;
+        for(int i=0; i<s.size(); i++)
+        {
+            if(s[i]=='F')
+                f++;
+            if(s[i]=='M')
+                m++;
+        }
+        if(m==f && s.size()>2)
+            cout<<"LOOP"<<endl;
+        else
+            cout<<"NO LOOP"<<endl;
+    }
+    return 0;
+}

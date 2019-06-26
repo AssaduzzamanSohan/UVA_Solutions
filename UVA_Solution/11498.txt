@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    int i,n,x,y,a,b,j;
+    for(j=0; ; j++)
+    {
+        cin>>n;
+        if(n==0)
+            return 0;
+        cin>>x>>y;
+        for(i=0; i<n; i++)
+        {
+            cin>>a>>b;
+            if(a==x || b==y)
+                cout<<"divisa"<<endl;
+            else if(a>x && b>y)
+                cout<<"NE"<<endl;
+            else if(a>x && b<y)
+                cout<<"SE"<<endl;
+            else if(a<x && b>y)
+                cout<<"NO"<<endl;
+            else if(a<x && b<y)
+                cout<<"SO"<<endl;
+        }
+    }
+
+    return 0;
+}
+

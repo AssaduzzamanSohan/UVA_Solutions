@@ -1,0 +1,30 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long
+
+int main()
+{
+    int n,v,t;
+    double time,mn;
+    while(cin>>n &&n)
+    {
+        mn=99999999.0;
+        while(n--)
+        {
+            cin>>v>>t;
+            if(t>=0)
+            {
+                time=16200.0/v + t;
+                if(time<mn)
+                    mn=time;
+            }
+        }
+        mn=ceil(mn);
+        cout<<mn<<endl;
+    }
+
+    return 0;
+}

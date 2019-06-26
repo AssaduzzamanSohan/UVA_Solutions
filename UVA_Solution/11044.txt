@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    int i,t,n,m,a,b,c,d;
+
+    cin>>t;
+    for(i=0; i<t ; i++)
+    {
+        cin>>a>>b;
+        a-=2;
+        b-=2;
+        c=a/3;
+        if(c*3<a) c++;
+        d=b/3;
+        if(d*3<b) d++;
+        cout<<c*d<<"\n";
+    }
+
+    return 0;
+}

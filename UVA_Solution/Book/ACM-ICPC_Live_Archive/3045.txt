@@ -1,0 +1,32 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long
+
+int main()
+{
+    int x[10021]= {0};
+    int i,sum=0,c=0,cpy=0,n;
+
+    for(i=1; sum<=10000; i++)
+    {
+        cpy=sum;
+        sum+=i;
+        x[sum]=(i*i)+x[cpy];
+        c++;
+    }
+    for(i=10010; i>0; i--)
+    {
+        if(x[i]>0)
+            c--;
+        else
+            x[i]=x[i+1]-c;
+    }
+
+    while(cin>>n &&n)
+        cout<<n<<' '<<x[n]<<endl;
+
+    return 0;
+}

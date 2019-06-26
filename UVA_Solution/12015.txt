@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    string s[10];
+    int a[10]= {0};
+    int n,i;
+    cin>>n;
+    for(i=1; i<=n; i++)
+    {
+        printf("Case #%d:\n",i);
+        int mx=0;
+        for(int j=0; j<10; j++)
+        {
+            cin>>s[j]>>a[j];
+            if(a[j]>mx) mx=a[j];
+        }
+        for(int j=0; j<10; j++)
+        {
+            if(a[j]==mx) cout<<s[j]<<endl;
+        }
+    }
+    return 0;
+}

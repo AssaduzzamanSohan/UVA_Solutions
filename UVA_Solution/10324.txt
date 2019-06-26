@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    char s[1000000]= {'\n'};
+    int c=1;
+    while(scanf("%s",s)!=EOF)
+    {
+        int n,i,j,a,b;
+        printf("Case %d:\n",c++);
+        cin>>n;
+
+        for(i=0; i<n; i++)
+        {
+            int x[2]= {0};
+            cin>>a>>b;
+            if(a>b) swap(a,b);
+            for(j=a; j<=b; j++)
+            {
+                if(s[j]=='1')
+                    x[1]++;
+                else
+                    x[0]++;
+            }
+            if(x[1]>0 && x[0]>0)
+                printf("No\n");
+            else
+                printf("Yes\n");
+        }
+    }
+
+    return 0;
+}

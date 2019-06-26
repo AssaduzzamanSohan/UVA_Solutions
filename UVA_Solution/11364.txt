@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    int i,j,t,n,sum;
+    int x[21]= {0};
+    cin>>t;
+    for(i=0; i<t ; i++)
+    {
+        sum=0;
+        for(j=0; j<22; j++)
+            x[j]=0;
+        cin>>n;
+        for(j=0; j<n; j++)
+            cin>>x[j];
+        sort(x,x+n);
+        for(j=1; j<n; j++)
+            sum+=x[j]-x[j-1];
+        cout<<sum*2<<"\n";
+    }
+
+    return 0;
+}

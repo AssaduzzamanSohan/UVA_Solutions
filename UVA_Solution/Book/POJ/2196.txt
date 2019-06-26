@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long int
+
+int sum_other(int m,int b)
+{
+    int sum=0;
+    while(m)
+    {
+        sum+=(m%b);
+        m/=b;
+    }
+    return sum;
+}
+
+int main()
+{
+    int  x=0,y=0,z=0;
+    for(int i=2992; i<=9999; i++)
+    {
+        x=sum_other(i,10);
+        y=sum_other(i,12);
+        z=sum_other(i,16);
+        if(x==y && y==z)
+            cout<<i<<endl;
+    }
+
+    return 0;
+}

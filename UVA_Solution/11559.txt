@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int main()
+{
+    int n,b,h,w;
+
+    while(scanf("%d %d %d %d",&n,&b,&h,&w)!=EOF)
+    {
+        int price,bed,mn=99999999,cost;
+        for(int i=0; i<h; i++)
+        {
+            cin>>price;
+            for(int j=0; j<w; j++)
+            {
+                cin>>bed;
+                if(bed>=n)
+                {
+                    cost=n*price;
+                    if(cost<mn) mn=cost;
+                }
+            }
+        }
+        if(mn>b) cout<<"stay home"<<endl;
+        else cout<<mn<<endl;
+    }
+
+    return 0;
+}

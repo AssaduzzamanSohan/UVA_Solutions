@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+long long int binstrToInt( const char* binstr )
+{
+    long long int result = 0 ;
+    int bit = 0;
+    while( binstr[bit] != '\0' )
+    {
+        if( binstr[bit] == '1' )
+        {
+            result |= 1 ;
+        }
+        bit++ ;
+        if( binstr[bit] != '\0' )
+        {
+            result <<= 1 ;
+        }
+    }
+    return result ;
+}
+
+
+int main()
+{
+    long long int a,b,x;
+
+    while(scanf("%lld %lld",&a,&b)!=EOF)
+    {
+        char bin1_32[]  = "00000000000000000000000000000000";
+        char bin2_32[]  = "00000000000000000000000000000000";
+
+        for (int pos = 31; pos >= 0; --pos)
+        {
+            if (a%2)
+                bin1_32[pos] = '1';
+            a/= 2;
+        }
+        for (int pos = 31; pos >= 0; --pos)
+        {
+            if (b%2)
+                bin2_32[pos] = '1';
+            b/= 2;
+        }
+        for(int i=0; i<=31; i++)
+        {
+            if(bin1_32[i]==bin2_32[i]) bin1_32[i]='0';
+            else bin1_32[i]='1';
+        }
+        x=binstrToInt(bin1_32);
+        cout<<x<<endl;
+
+    }
+    return 0;
+}

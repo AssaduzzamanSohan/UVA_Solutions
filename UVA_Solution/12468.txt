@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+
+int main()
+{
+    int a,b,x,y,i;
+
+    for(i=0; ; i++)
+    {
+        cin>>a>>b;
+        if(a<0) return 0;
+
+        if(a==b) cout<<"0"<<endl;
+        if(a<b)
+        {
+            x=b-a;
+            y=100-b+a;
+            cout<<min(x,y)<<endl;
+        }
+        if(a>b)
+        {
+            x=a-b;
+            y=100-a+b;
+            cout<<min(x,y)<<endl;
+        }
+    }
+    return 0;
+}

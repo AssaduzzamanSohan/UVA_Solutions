@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+int charToVal(char curChar)
+{
+    char convArray[] =
+    {'0','1', '2', '3', '4', '5', '6', '7', '8', '9','A', 'B', 'C', 'D', 'E', 'F'};
+    for(int i=0; i<16; ++i)
+    {
+        if(curChar==convArray[i])
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+char valToChar(long long int val)
+{
+    char convArray[] =
+    {'0','1', '2', '3', '4', '5', '6', '7', '8', '9','A', 'B', 'C', 'D', 'E', 'F'};
+
+    if(val <16 && val>=0)
+    {
+        return convArray[val];
+    }
+    return ' ';
+}
+
+bool convertToDecimal(char * gdstr, long long int length, long long int inConvertor, long long int & decimal)
+{
+    long long int factor = 1;
+    decimal=0;
+    //std::cout << length;
+    for(long long int i=length-1; i >=0; --i)
+    {
+        long long int curVal(charToVal(gdstr[i]));
+        decimal +=  factor*curVal;
+        factor*=inConvertor;
+    }
+    //std::cout << decimal << std::endl;
+    return true;
+}
+bool convertFromDecimal(long long int  decimal, long long int outConvertor, char * outString, long long int & length)
+{
+    long long int fact = 1;
+    length=0;
+    while (decimal > 0)
+    {
+        fact = decimal%outConvertor;
+        char curChar(valToChar(fact));
+        outString[length] = curChar;
+        decimal/=outConvertor;
+        length++;
+    }
+    return true;
+}
+
+int main()
+{
+    char out[50],any[50];
+    long long int inLeng,decVal,outLeng=0,inType,outtype,l;
+
+    cin >> any;
+    cin >> inType;
+    cin >> outtype;
+    l=strlen(any);
+    convertToDecimal(any, l, inType, decVal);
+    convertFromDecimal(decVal, outtype, out, outLeng);
+
+    for(long long int i = outLeng-1; i >=0; --i)
+        cout << out[i];
+
+    cout<<endl;
+}

@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+
+int isprime(int n)
+{
+    int i;
+    for(i=2; i*i<=n; i++)
+    {
+        if(n%i==0)
+            return 0;
+    }
+    return 1;
+}
+
+int main()
+{
+    int p[1250]= {0},total=0;
+    int i,j,n;
+    for(i=2; i<=10000; i++)
+    {
+        if(isprime(i))
+        {
+            p[total]=i;
+            total++;
+        }
+    }
+    while(cin>>n &&n)
+    {
+        int Ans=0,sum;
+        for(i=0; p[i]<=n; i++)
+        {
+            sum=0;
+            for(j=i; j<total && sum<=n; j++)
+            {
+                sum+=p[j];
+                if(sum==n)
+                    Ans++;
+            }
+        }
+        cout<<Ans<<endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,43 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+//#define Faster ios_base::sync_with_stdio(false); cin.tie(0)
+#define pi 3.14159265358979323846
+#define ll long long
+
+int main()
+{
+    string s,a[10001],b[10001];
+    int x[27]= {0};
+    int i,j,k;
+
+    for(i=0; i<4; i++)
+    {
+        getline(cin, s);
+        for(j=0; j<s.size(); j++)
+        {
+            if(s[j]>='A' && s[j]<='Z')
+                x[s[j]-64]++;
+        }
+    }
+
+    for(i=1; i<=26; i++)
+    {
+        for(j=1; j<=x[i]; j++)
+            a[i][j]='*';
+    }
+    for(i=1; i<=26; i++)
+        a[i][0]=i+64;
+    for(i=1; i<=26; i++)
+    {
+        for(j=0; j<=x[i]; j++)
+        {
+            cout<<a[i][j]<<' ';
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+
+
+    return 0;
+}
